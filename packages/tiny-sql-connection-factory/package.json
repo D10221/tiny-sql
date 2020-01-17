@@ -17,11 +17,9 @@
   "license": "MIT",  
   "dependencies": {
     
-  },
-  "peerDependencies": {
-    "tedious": "^3.0.1"
-  },
+  },  
   "devDependencies": {
+    "tedious": "8.0.1",
     "@types/jest": "^22.2.3",
     "@types/tedious": "^2.6.1",
     "jest": "24.9.0",
