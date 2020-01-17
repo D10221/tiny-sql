@@ -3,7 +3,7 @@ Familiar usage interface, Promise only, composable, easy to use, mssql query uti
 Designed to be use with RAW MS-SQL dialect ONLY.
 And named parameters like "`{ name: 'me'}`"
 
-Is NOT: Full featured, you probably want to use knex instead.
+Is NOT: Full featured, NOT prod ready, NOT finished, you probably want to use knex instead.
 
 Depends on:
 ```json
@@ -69,7 +69,7 @@ describe("usage", () => {
     })
 })
 ```
-API:
+API (unstable):
 
 Exports
 ```typescript
@@ -104,3 +104,4 @@ Notes:
 𐄂 It always returns a collection.  
 𐄂 There is no single exec or query  
 𐄂 ExecParams dot not map all possible types
+
