@@ -1,39 +1,33 @@
 {
-  "name": "tiny-sql-tools",
+  "name": "@d10221/tiny-sql",
+  "private": false,
   "version": "1.0.0-19",
-  "description": "tiny ms-sql tools",
-  "private": true,
+  "description": "tiny sql mapper for tediousjs",
+  "main": "index.js",
+  "module": "index.esm.js",
+  "src": "src/index.ts",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "clean": "rimraf **/node_modules/* && rm yarn.lock && yarn",
-    "test": "./scripts/test",
-    "pretty:package": "prettier package.json --write && prettier packages/**/package.json --write",    
-    "build": "./scripts/build &> build.log"
+    "test": "jest --ci --env=node",
+    "build": "rimraf dist && tsc -p .",
+    "publishit": "npm publish --access public"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/australis-technica/tiny-sql.git"
-  },
-  "keywords": [],
-  "author": "d10221@protonmail.com",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/australis-technica/tiny-sql/issues"
-  },
-  "homepage": "https://github.com/australis-technica/tiny-sql#readme",
-  "workspaces": [
-    "packages/*",    
-    "local/*"
+  "keywords": [
+    "typescript",
+    "sql",
+    "mapper"
   ],
-  "engines": {
-    "yarn": "^1.7.0"
-  },
+  "author": "d10221@protonmail.com.com",
+  "license": "MIT",
+  "dependencies": {},
   "devDependencies": {
-    "lerna": "^2.11.0",
-    "prettier": "^1.13.7",
-    "cross-env": "^5.2.0",
-    "microbundle": "^0.11.0"
-  },
-  "dependencies": {
-
+    "@types/debug": "^0.0.30",
+    "@types/jest": "23.1.5",
+    "@types/tedious": "4.0.0",
+    "debug": "^3.1.0",
+    "jest": "24.9.0",
+    "tedious": "8.0.1",
+    "ts-jest": "24.3.0",
+    "typescript": "^3.7.5"
   }
 }

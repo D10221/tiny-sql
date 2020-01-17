@@ -1,31 +1,18 @@
-tiny ms-sql tools
 
-Install:
+    npm run build && export DEBUG='australis/tiny-sql:*' && npm test && npm tun build
 
-    npm i @d10221/tiny-sql
+    Test: 
 
-    yarn add @d10221/tiny-sql
+    add ./secrets/connection-config.json before running tests
 
-Or individual packages
+    connection-config.json: 
 
-- @d10221/tiny-sql-batch-script  
-- @d10221/tiny-sql-connect  
-- @d10221/tiny-sql-connection-config  
-- @d10221/tiny-sql-connection-factory  
-- @d10221/tiny-sql-connection-string-parse  
-- @d10221/tiny-sql-exec-sql  
-- @d10221/tiny-sql-params  
-- @d10221/tiny-sql-scripts  
-
-
-Usage:  
-see tests
-
-Scripts:
-
-set-version:  
-| sets packages/**/packkage.json#version from root package.json#version,  
-also in lerna.json (just in case)
-
-set-private:  
-| sets ./package.json#private=value where value true|false
+        { 
+            "server": "localhost",
+            "userName": "sa",
+            "password": "supersecret",
+            "options": {
+                "database": "testdb",
+                "encrypt": false
+            }
+        }
