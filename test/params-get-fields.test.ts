@@ -8,6 +8,5 @@ describe(name + "-get-fields", () => {
     expect(getFields({}, filters)).toBe("");
     expect(getFields({ x: undefined }, filters)).toBe("");
     expect(getFields({ x: null }, filters)).toBe("");
-
   })
 })
