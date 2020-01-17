@@ -14,26 +14,7 @@
   },
   "keywords": [],
   "author": "@d10221@protonmail.com",
-  "license": "MIT",
-  "jest": {
-    "globals": {
-      "ts-jest": {
-        "tsConfigFile": "tsconfig.test.json"
-      }
-    },
-    "transform": {
-      "^.+\\.tsx?$": "ts-jest"
-    },
-    "testRegex": "(/test/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "node"
-    ]
-  },
+  "license": "MIT",  
   "devDependencies": {
     "@types/debug": "^0.0.30",
     "@types/dotenv": "^4.0.3",

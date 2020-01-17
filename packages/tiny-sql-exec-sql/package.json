@@ -19,28 +19,7 @@
   ],
   "author": "d10221@protonmail.com.com",
   "license": "MIT",
-  "jest": {
-    "globals": {
-      "ts-jest": {
-        "tsConfigFile": "tsconfig.test.json"
-      }
-    },
-    "transform": {
-      "^.+\\.tsx?$": "ts-jest"
-    },
-    "testRegex": "(/test/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "node"
-    ]
-  },
-  "dependencies": {
-    
-  },
+  "dependencies": {},
   "peerDependencies": {
     "tedious": "^3.0.1"
   },
