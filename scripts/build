@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+WS=workspace
+S=@d10221 # scope
+DIR=`dirname $0`
+$DIR/ws tiny-sql-connect build && \
+$DIR/ws tiny-sql-params build && \
+$DIR/ws tiny-sql-exec-sql build && \
+$DIR/ws tiny-sql-connection-string-parse build && \
+$DIR/ws tiny-sql-connection-config build && \
+$DIR/ws tiny-sql-connection-factory build && \
+$DIR/ws tiny-sql-use-connection build && \
+echo "Built!"

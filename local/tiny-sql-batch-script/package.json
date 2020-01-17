@@ -2,12 +2,14 @@
   "name": "@d10221/tiny-sql-batch-script",
   "version": "1.0.0-19",
   "description": "run a sql/script \"GO\" splitted script (internal)",
-  "main": "lib/index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "src": "src/index.ts",
   "types": "lib/index.d.ts",
   "private": true,
   "scripts": {
     "test": "jest --ci --env=node",
-    "build": "rimraf lib && tsc -p .",
+    "build": "rimraf dist &&microbundle --modern  -f es,cjs --external tedious",
     "publishit": "npm publish --access public"
   },
   "keywords": [],
@@ -43,7 +45,7 @@
     "typescript": "3.1.6"
   },
   "dependencies": {
-    "@d10221/create-debug": "^1.0.2"
+    
   },
   "directories": {
     "lib": "lib",

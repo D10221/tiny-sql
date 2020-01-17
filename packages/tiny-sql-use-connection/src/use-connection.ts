@@ -1,6 +1,6 @@
 import { Connection } from "tedious";
-import { debugModule } from "@d10221/create-debug";
-const debug = debugModule(module);
+import Debug from "debug";
+const debug = Debug("@d10221/tiny-sql-use-connection");
 /** */
 export default function using(getConnection: () => Promise<Connection>) {
   /** */

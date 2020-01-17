@@ -1,4 +1,3 @@
-import { debugModule } from "@d10221/create-debug";
 import { getParams, TediousParameter } from "@d10221/tiny-sql-params";
 import {
   ColumnMetaData,
@@ -7,8 +6,8 @@ import {
   Request,
   TYPES,
 } from "tedious";
-// ...
-const debug = debugModule(module);
+import Debug from "debug";
+const debug = Debug("@d10221/tiny-sql-exec-sql/exec");
 /** */
 export type Result<T extends {} & { [key: string]: any }> = {
   values?: T[];

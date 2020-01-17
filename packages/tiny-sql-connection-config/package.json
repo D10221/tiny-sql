@@ -3,11 +3,13 @@
   "version": "1.0.0-19",
   "description": "It provides ms-sql/tedious connection config from connection-string from env key.",
   "private": false,
-  "main": "lib/index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "src": "src/index.ts",
   "types": "lib/index.d.ts",
   "scripts": {
     "test": "jest --ci --env=node",
-    "build": "rimraf lib && tsc -p .",
+    "build": "rimraf dist &&microbundle --modern  -f es,cjs --external tedious",
     "publishit": "npm publish --access public"
   },
   "keywords": [],

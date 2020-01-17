@@ -1,14 +1,3 @@
-# See https://help.github.com/ignore-files/ for more about ignoring files.
-
-# dependencies
-**/node_modules/*
-
-# testing
-**/coverage/*
-
-# production
-**/build/*
-
 # misc
 .DS_Store
 
@@ -16,21 +5,18 @@
 *.local
 
 #env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-.prod.env
-.dev.env
+*.local
+*.prod.env
+*.dev.env
+*.test.env 
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
 *.log
 
+**/node_modules/*
+**/coverage/*
 **/.vscode/*
 **/lib/*
-**/built/*
+**/build/*
 **/out/*
 **/dist/*
 **/built/*
@@ -40,9 +26,6 @@ yarn-error.log*
 
 *.zip
 *.tgz
-
-*.test.env 
-*.dev.env
-*.prod.env
-
+*.tar.gz
 *.lock
+**/*_cache_*/*

@@ -1,8 +1,7 @@
-import { debugModule } from "@d10221/create-debug";
 import { getParams, TediousParameter } from "@d10221/tiny-sql-params";
 import { ColumnMetaData, ColumnValue, Connection, Request, TYPES } from "tedious";
-// ...
-const debug = debugModule(module);
+import Debug from "debug";
+const debug = Debug("@d10221/tiny-sql-exec-sql/exec-sql");
 /** */
 export type Result<T extends {} & { [key: string]: any }> = {
   connection: Connection;

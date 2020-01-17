@@ -1,7 +1,7 @@
-import { debugModule } from "@d10221/create-debug";
 import isFunction from "./is-function";
 import { KeyFilter } from "./types";
-const debug = debugModule(module);
+import Debug from "debug";
+const debug = Debug("@d10221/tiny-sql-params/get-fields");
 /**
  * 
  */

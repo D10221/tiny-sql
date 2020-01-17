@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+W="workspace"
+S="@d10221" # scope
+CMD="$W $S/$1 $2"
+echo $CMD
+yarn $CMD

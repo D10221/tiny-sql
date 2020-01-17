@@ -2,12 +2,14 @@
   "name": "@d10221/tiny-sql-scripts",
   "version": "1.0.0-19",
   "description": "utility to read scripts from known common location",
-  "private": false,
-  "main": "lib/index.js",
+  "private": true,
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "src": "src/index.ts",
   "types": "lib/index.d.ts",
   "scripts": {
     "test": "jest --ci --env=node",
-    "build": "rimraf lib && tsc -p .",
+    "build": "rimraf dist &&microbundle --modern  -f es,cjs --external tedious",
     "publishit": "npm publish --access public"
   },
   "keywords": [],
@@ -33,7 +35,7 @@
     ]
   },
   "dependencies": {
-    "@d10221/create-debug": "^1.0.2"
+    
   },
   "devDependencies": {
     "@types/debug": "^0.0.30",
