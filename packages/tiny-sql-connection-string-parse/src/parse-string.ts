@@ -1,13 +1,8 @@
 import { ConnectionConfig } from "tedious";
 import Debug from "debug";
 const debug = Debug("@d10221/tiny-sql-connection-string-parse");
-
-function isString(x: any): x is "string" {
-  return typeof x === "string";
-}
-
 /** 
- * sample 'Data Source=(local);Initial Catalog=DBNAME;user=userName;password=password;'
+ * sample 'Data Source=(local);Initial Catalog=DBNAME;user=test;password=test;'
  * */
 export default function parseString(connectionString: string): ConnectionConfig {
   try {
@@ -15,16 +10,22 @@ export default function parseString(connectionString: string): ConnectionConfig 
       throw new Error("Integrated Security is Not Implemented");
     }
     const config = connectionString.split(";")
-      .filter(x => isString(x) && x.trim() !== "")
+      .filter(Boolean)
       .reduce((out, next) => {
-        const parts = next.split("=");
-        return Object.assign(out, { [parts[0]]: parts[1] });
+        const [key, value] = next.split("=");
+        return {
+          ...out,
+          [key ? key.toLowerCase() : key]: value
+        }
       }, {} as { [key: string]: string });
-    const server = config["Data Source"].split(":")[0].replace("(local)", "localhost");
-    const port = Number(config["Data Source"].split(":")[1]) || 1433
-    const database = config["Initial Catalog"];
+
+    const dataSource = config["data source"] || config["server"];
+    const server = dataSource && dataSource.split(":")[0].replace("(local)", "localhost") || "";
+    const port = dataSource && (Number(dataSource.split(":")[1]) || 1433) || NaN;
+    let database = config["initial catalog"];
+    database = database || config["database"];
     // non standard?
-    const encrypt = Boolean(config.encrypt);
+    const encrypt = Boolean(config["encrypt"]);
     return {
       server,
       userName: config["user"],
