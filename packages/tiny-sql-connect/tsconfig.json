@@ -8,8 +8,11 @@
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "sourceMap": true,
-        "outDir": "./lib",                
-        "declaration": true
+        "outDir": "./dist",                
+        "declaration": true,
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true
     },
     "exclude": [
         "lib",

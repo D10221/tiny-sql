@@ -1,21 +1,14 @@
 import ExecSql from "../src";
-import connect from "@d10221/tiny-sql-connect"
+import connect from "@d10221/tiny-sql-connect";
 import { Connection } from "tedious";
-import { join } from "path";
-/** */
-const config = require(join(
-  __dirname,
-  "../.secrets/",
-  "connection-string.json"
-));
+
+const config = { server: "localhost", password: "test", userName: "test", options: { encrypt: false } };
 /** */
 it("execs with connection", async () => {
   let connection: Connection;
-  try {
-    connection = new Connection(config);
-    const sqlTxt = "select 'x' as name";
-    connection.close();
+  try {    
     connection = await connect(config);
+    const sqlTxt = "select 'x' as name";        
     const execSql = ExecSql(connection);
     const result = await execSql<{ name: string }>(sqlTxt);
     expect(result.values[0].name).toBe("x");

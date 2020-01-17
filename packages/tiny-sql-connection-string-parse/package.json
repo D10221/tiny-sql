@@ -16,15 +16,16 @@
   "keywords": [],
   "author": "d10221@protonmail.com.com",
   "license": "MIT",
-  "dependencies": {},
-  
+  "dependencies": {
+    "esm": "^3.2.25"
+  },
   "devDependencies": {
-    "tedious": "8.0.1",
     "@types/debug": "^0.0.30",
     "@types/jest": "^22.2.3",
-    "@types/tedious": "^2.6.1",
+    "@types/tedious": "4.0.0",
     "jest": "24.9.0",
     "rimraf": "^2.6.2",
+    "tedious": "8.0.1",
     "ts-jest": "24.3.0",
     "ts-node": "^5.0.0",
     "typescript": "3.1.6"

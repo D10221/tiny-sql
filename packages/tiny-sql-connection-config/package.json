@@ -19,7 +19,7 @@
     "@d10221/tiny-sql-connection-string-parse": "1.0.0-19"
   },
   "devDependencies": {
-    "@types/tedious": "^2.6.1",
+    "@types/tedious": "4.0.0",
     "jest": "24.9.0",
     "rimraf": "^2.6.2",
     "ts-jest": "24.3.0",
