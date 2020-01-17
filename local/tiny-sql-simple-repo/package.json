@@ -1,0 +1,56 @@
+{
+  "name": "@d10221/tiny-sql-simple-repo",
+  "version": "1.0.0-19",
+  "description": "Simple Table Repo",
+  "private": false,
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "test": "jest --ci=true --env=node",
+    "build": "rimraf lib && tsc -p .",
+    "publishit": "npm publish --access public"
+  },
+  "keywords": [],
+  "author": "d10221@protonmail.com.com",
+  "license": "MIT",
+  "jest": {
+    "globals": {
+      "ts-jest": {
+        "tsConfigFile": "tsconfig.test.json"
+      }
+    },
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/test/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  },
+  "dependencies": {
+    "@d10221/create-debug": "^1.0.2",
+    "@d10221/tiny-sql-exec-sql": "1.0.0-19",
+    "@d10221/tiny-sql-params": "1.0.0-19",
+    "@d10221/tiny-sql-connection-config": "1.0.0-19",
+    "@d10221/tiny-sql-use-connection": "1.0.0-19",
+    "@d10221/tiny-sql-connect": "1.0.0-19" 
+  },
+  "peerDependencies": {    
+    "tedious": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^10.12.8",
+    "@types/jest": "23.1.5",
+    "@types/tedious": "^2.6.1",
+    "jest": "22.4.3",
+    "rimraf": "^2.6.2",
+    "ts-jest": "22.4.4",
+    "ts-node": "^5.0.0",
+    "typescript": "3.1.6"
+  }
+}

@@ -1,5 +1,5 @@
 process.env.NODE_ENV = "test";
-import "@australis/load-env";
+import "@d10221/load-env";
 /** */
 describe("connection-config", () => {
     it("works without parameters", async () => {

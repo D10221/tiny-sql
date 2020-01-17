@@ -1,0 +1,28 @@
+import { Connection } from "tedious";
+import { Exec } from "@d10221/tiny-sql-exec-sql";
+import { debugModule } from "@d10221/create-debug";
+const debug = debugModule(module);
+/**
+ *
+ */
+export default <T>(tableName: string) => (params: Partial<T>) => async (
+  connection: Connection,
+): Promise<T[]> => {
+  try {
+    const query = `/*find-by*/
+select * from ${tableName} 
+  where ${Object.keys(params)
+    .map(key => ` ${key} = @${key}`)
+    .join(" AND ")};
+/*find-by*/`;
+    debug(query);
+    const r = await Exec<T>(query, params)(connection);
+    if (r.error) {
+      return Promise.reject(r.error);
+    }
+    return Promise.resolve(r.values);
+  } catch (error) {
+    debug(error);
+    return Promise.reject(error);
+  }
+};

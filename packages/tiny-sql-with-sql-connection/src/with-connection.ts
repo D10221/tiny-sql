@@ -1,5 +1,5 @@
 import { Connection } from "tedious";
-import { debugModule } from "@australis/create-debug";
+import { debugModule } from "@d10221/create-debug";
 const debug = debugModule(module);
 /** */
 export default async function withConnection<T>(

@@ -1,5 +1,5 @@
 {
-  "name": "@australis/tiny-sql-connection-factory",
+  "name": "@d10221/tiny-sql-connection-factory",
   "version": "1.0.0-19",
   "description": "create new ms-sql/tedious, connection from connection-config from env key",
   "private": false,
@@ -11,7 +11,7 @@
     "publishit": "npm publish --access public"
   },
   "keywords": [],
-  "author": "daniel@australis-technica.com",
+  "author": "d10221@protonmail.com.com",
   "license": "MIT",
   "jest": {
     "globals": {
@@ -36,7 +36,6 @@
     "tedious": "^3.0.1"
   },
   "devDependencies": {
-    "@australis/load-env": "latest",
     "@types/jest": "^22.2.3",
     "@types/tedious": "^2.6.1",
     "jest": "22.4.3",

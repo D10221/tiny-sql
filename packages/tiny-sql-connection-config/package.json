@@ -1,5 +1,5 @@
 {
-  "name": "@australis/tiny-sql-connection-config",
+  "name": "@d10221/tiny-sql-connection-config",
   "version": "1.0.0-19",
   "description": "It provides ms-sql/tedious connection config from connection-string from env key.",
   "private": false,
@@ -11,7 +11,7 @@
     "publishit": "npm publish --access public"
   },
   "keywords": [],
-  "author": "daniel@australis-technica.com",
+  "author": "d10221@protonmail.com.com",
   "license": "MIT",
   "jest": {
     "globals": {
@@ -33,7 +33,7 @@
     ]
   },
   "dependencies": {
-    "@australis/tiny-sql-connection-string-parse": "1.0.0-19"
+    "@d10221/tiny-sql-connection-string-parse": "1.0.0-19"
   },
   "devDependencies": {
     "@types/tedious": "^2.6.1",

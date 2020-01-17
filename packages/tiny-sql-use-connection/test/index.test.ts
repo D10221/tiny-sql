@@ -1,7 +1,7 @@
-import "@australis/load-env";
+import "@d10221/load-env";
 import { join } from "path";
-import connect from "@australis/tiny-sql-connect-to-server";
-import execSql from "@australis/tiny-sql-exec-sql";
+import connect from "@d10221/tiny-sql-connect-to-server";
+import execSql from "@d10221/tiny-sql-exec-sql";
 import useConnection from "../src";
 /**
  * ?

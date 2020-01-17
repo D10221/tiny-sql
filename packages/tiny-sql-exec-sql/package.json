@@ -1,5 +1,5 @@
 {
-  "name": "@australis/tiny-sql-exec-sql",
+  "name": "@d10221/tiny-sql-exec-sql",
   "private": false,
   "version": "1.0.0-19",
   "description": "tiny sql mapper for tediousjs",
@@ -15,7 +15,7 @@
     "sql",
     "mapper"
   ],
-  "author": "daniel@australis-technica.com",
+  "author": "d10221@protonmail.com.com",
   "license": "MIT",
   "jest": {
     "globals": {
@@ -37,8 +37,8 @@
     ]
   },
   "dependencies": {
-    "@australis/create-debug": "^1.0.2",
-    "@australis/tiny-sql-params": "1.0.0-19",
+    "@d10221/create-debug": "^1.0.2",
+    "@d10221/tiny-sql-params": "1.0.0-19",
     "tedious": "^3.0.1"
   },
   "devDependencies": {

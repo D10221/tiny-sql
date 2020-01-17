@@ -1,5 +1,5 @@
-import { debugModule } from "@australis/create-debug";
-import { getParams, TediousParameter } from "@australis/tiny-sql-params";
+import { debugModule } from "@d10221/create-debug";
+import { getParams, TediousParameter } from "@d10221/tiny-sql-params";
 import {
   ColumnMetaData,
   ColumnValue,

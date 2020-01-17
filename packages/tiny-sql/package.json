@@ -1,5 +1,5 @@
 {
-  "name": "@australis/tiny-sql",
+  "name": "@d10221/tiny-sql",
   "version": "1.0.0-19",
   "description": "meta package",
   "private": false,
@@ -12,7 +12,7 @@
     "set-version": "node ./scripts/set-version.js"
   },
   "keywords": [],
-  "author": "daniel@australis-technica.com",
+  "author": "d10221@protonmail.com.com",
   "license": "MIT",
   "jest": {
     "globals": {
@@ -34,21 +34,18 @@
     ]
   },
   "dependencies": {
-    "@australis/tiny-sql-batch-script": "1.0.0-19",
-    "@australis/tiny-sql-connect": "1.0.0-19",
-    "@australis/tiny-sql-connect-to-server": "1.0.0-19",
-    "@australis/tiny-sql-connection-config": "1.0.0-19",
-    "@australis/tiny-sql-connection-factory": "1.0.0-19",
-    "@australis/tiny-sql-connection-string-parse": "1.0.0-19",
-    "@australis/tiny-sql-create-db": "1.0.0-19",
-    "@australis/tiny-sql-exec-sql": "1.0.0-19",
-    "@australis/tiny-sql-json-table": "1.0.0-19",
-    "@australis/tiny-sql-params": "1.0.0-19",
-    "@australis/tiny-sql-scripts": "1.0.0-19",
-    "@australis/tiny-sql-simple-repo": "1.0.0-19",
-    "@australis/tiny-sql-simple-table": "1.0.0-19",
-    "@australis/tiny-sql-use-connection": "1.0.0-19",
-    "@australis/tiny-sql-with-sql-connection": "1.0.0-19"
+    "@d10221/tiny-sql-batch-script": "1.0.0-19",
+    "@d10221/tiny-sql-connect": "1.0.0-19",
+    "@d10221/tiny-sql-connection-config": "1.0.0-19",
+    "@d10221/tiny-sql-connection-factory": "1.0.0-19",
+    "@d10221/tiny-sql-connection-string-parse": "1.0.0-19",
+    "@d10221/tiny-sql-exec-sql": "1.0.0-19",
+    "@d10221/tiny-sql-params": "1.0.0-19",
+    "@d10221/tiny-sql-use-connection": "1.0.0-19",
+    "@d10221/tiny-sql-with-sql-connection": "1.0.0-19"
+  },
+  "peerDependencies": {
+
   },
   "devDependencies": {
     "@types/debug": "^0.0.30",

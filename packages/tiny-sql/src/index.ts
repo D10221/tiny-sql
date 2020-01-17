@@ -1,18 +1,18 @@
-export { default as execSql } from "@australis/tiny-sql-exec-sql";
-export { default as params } from "@australis/tiny-sql-params";
-export { default as scripts } from "@australis/tiny-sql-scripts";
-export { default as batchScript } from "@australis/tiny-sql-batch-script";
-export { default as connect } from "@australis/tiny-sql-connect";
+export { default as execSql } from "@d10221/tiny-sql-exec-sql";
+export { default as params } from "@d10221/tiny-sql-params";
+export { default as scripts } from "@d10221/tiny-sql-scripts";
+export { default as batchScript } from "@d10221/tiny-sql-batch-script";
+export { default as connect } from "@d10221/tiny-sql-connect";
 export {
   default as connectionConfig
-} from "@australis/tiny-sql-connection-config";
+} from "@d10221/tiny-sql-connection-config";
 export {
   default as connectionFactory
-} from "@australis/tiny-sql-connection-factory";
+} from "@d10221/tiny-sql-connection-factory";
 export {
   default as connecitonStringParse
-} from "@australis/tiny-sql-connection-string-parse";
+} from "@d10221/tiny-sql-connection-string-parse";
 export {
   default as simpleTable
-} from "@australis/tiny-sql-simple-table";
-export { default as withSqlConnection } from "@australis/tiny-sql-with-sql-connection";
+} from "@d10221/tiny-sql-simple-table";
+export { default as withSqlConnection } from "@d10221/tiny-sql-with-sql-connection";

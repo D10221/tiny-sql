@@ -1,5 +1,5 @@
 {
-  "name": "@australis/tiny-sql-use-connection",
+  "name": "@d10221/tiny-sql-use-connection",
   "version": "1.0.0-19",
   "description": "with sql connection",
   "private": false,
@@ -11,7 +11,7 @@
     "publishit": "npm publish --access public"
   },
   "keywords": [],
-  "author": "daniel@australis-technica.com",
+  "author": "d10221@protonmail.com.com",
   "license": "MIT",
   "jest": {
     "globals": {
@@ -33,7 +33,7 @@
     ]
   },
   "dependencies": {
-    "@australis/create-debug": "^1.0.2"
+    "@d10221/create-debug": "^1.0.2"
   },
   "devDependencies": {
     "jest": "22.4.3",

@@ -1,6 +1,6 @@
 import { Connection } from "tedious";
 process.env.NODE_ENV = "test";
-import "@australis/load-env";
+import "@d10221/load-env";
 /** */
 describe("new-connection", () => {
     it("works", async () => {

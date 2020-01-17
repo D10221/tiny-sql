@@ -1,6 +1,6 @@
 import { ConnectionConfig } from "tedious";
-import parseString from "@australis/tiny-sql-connection-string-parse";
-import { debugModule } from "@australis/create-debug";
+import parseString from "@d10221/tiny-sql-connection-string-parse";
+import { debugModule } from "@d10221/create-debug";
 const debug = debugModule(module);
 /** */
 let connectionConfig: ConnectionConfig;

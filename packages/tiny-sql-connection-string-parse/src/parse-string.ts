@@ -1,6 +1,6 @@
 import { ConnectionConfig } from "tedious";
 import { isString } from "util";
-import { debugModule } from "@australis/create-debug";
+import { debugModule } from "@d10221/create-debug";
 const debug  = debugModule(module);
 /** 
  * sample 'Data Source=(local);Initial Catalog=DBNAME;user=userName;password=password;'

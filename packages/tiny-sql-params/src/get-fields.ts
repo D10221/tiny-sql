@@ -1,4 +1,4 @@
-import { debugModule } from "@australis/create-debug";
+import { debugModule } from "@d10221/create-debug";
 import isFunction from "./is-function";
 import { KeyFilter } from "./types";
 const debug = debugModule(module);

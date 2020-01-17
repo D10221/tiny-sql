@@ -1,5 +1,5 @@
 {
-  "name": "@australis/tiny-sql-connect",
+  "name": "@d10221/tiny-sql-connect",
   "private": false,
   "version": "1.0.0-19",
   "description": "tiny sql mapper for tediousjs",
@@ -15,7 +15,7 @@
     "sql",
     "mapper"
   ],
-  "author": "daniel@australis-technica.com",
+  "author": "d10221@protonmail.com.com",
   "license": "MIT",
   "jest": {
     "globals": {

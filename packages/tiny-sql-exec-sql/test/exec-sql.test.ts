@@ -1,5 +1,5 @@
 import ExecSql from "../src";
-import connect from "@australis/tiny-sql-connect"
+import connect from "@d10221/tiny-sql-connect"
 import { Connection, ConnectionConfig } from "tedious";
 import { join } from "path";
 /** */
