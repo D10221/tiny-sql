@@ -1,18 +1,35 @@
+Debug:
 
-    npm run build && export DEBUG='australis/tiny-sql:*' && npm test && npm tun build
+```bash
+$ export DEBUG='D10221/tiny-sql:*' 
+```
 
-    Test: 
+Build:  
+```bash
+$ yarn test && yarn build
+```
 
-    add ./secrets/connection-config.json before running tests
+Connection string: 
 
-    connection-config.json: 
+```bash
+$export DB="server=localhost;database=testdb;user=test;password=test;encrypt=false"    
+```
 
-        { 
-            "server": "localhost",
+Connection Config: 
+
+```json
+{ 
+    "server": "localhost",
+    "authentication" :{
+        "type": "default",
+        "options": {
             "userName": "sa",
             "password": "supersecret",
-            "options": {
-                "database": "testdb",
-                "encrypt": false
-            }
         }
+    },
+    "options": {
+        "database": "testdb",
+        "encrypt": false
+    }
+}
+```
