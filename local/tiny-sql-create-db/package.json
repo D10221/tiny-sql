@@ -6,7 +6,7 @@
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "src": "src/index.ts",
-  "types": "lib/index.d.ts",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "jest --env=node",
     "build": "rimraf dist &&microbundle --modern  -f es,cjs --external tedious",

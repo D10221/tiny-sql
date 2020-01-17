@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "src": "src/index.ts",
-  "types": "lib/index.d.ts",
+  "types": "dist/index.d.ts",
   "private": true,
   "scripts": {
     "test": "jest --ci --env=node",
@@ -44,13 +44,11 @@
     "ts-node": "^5.0.0",
     "typescript": "3.1.6"
   },
-  "dependencies": {
-    
-  },
-  "directories": {
-    "lib": "lib",
-    "test": "test"
-  },
+  "dependencies": {},
+  "files": [
+    "dist",
+    "src"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/australis-technica/sql-batch-script.git"

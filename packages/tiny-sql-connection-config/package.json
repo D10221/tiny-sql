@@ -6,7 +6,7 @@
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "src": "src/index.ts",
-  "types": "lib/index.d.ts",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "jest --ci --env=node",
     "build": "rimraf dist &&microbundle --modern  -f es,cjs --external tedious",
@@ -45,10 +45,10 @@
     "ts-node": "^5.0.0",
     "typescript": "3.1.6"
   },
-  "directories": {
-    "lib": "lib",
-    "test": "test"
-  },
+  "files": [
+    "dist",
+    "src"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/australis-technica/sql-connection-config.git"
