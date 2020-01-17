@@ -1,6 +1,6 @@
 process.env.NODE_ENV = "test";
-process.env.DB="Data Source=localhost;Initial Catalog=testdb;user=sa;password=P@55w0rd!;"
-process.env.DB1="Data Source=local;Initial Catalog=xdb;user=me;password=password;encrypt=true;"
+process.env.DB="Data Source=localhost;Initial Catalog=testdb;user=test;password=test;"
+process.env.DB1="Data Source=local;Initial Catalog=xdb;user=test;password=test;"
 /** */
 describe("connection-config", () => {
     it("works without parameters", async () => {

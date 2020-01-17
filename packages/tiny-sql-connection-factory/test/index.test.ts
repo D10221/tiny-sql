@@ -1,13 +1,15 @@
-import { Connection } from "tedious";
 process.env.NODE_ENV = "test";
-import "@d10221/load-env";
+process.env.DB="Data Source=localhost;Initial Catalog=testdb;user=test;password=test;"
 /** */
 describe("new-connection", () => {
     it("works", async () => {
-        let connection: Connection;
+        const { Connection } = await import("tedious");
+        const { default: getconnection } = (await import("../src"));
+        let connection: any;
         try {
-            connection = await (await import("../src")).default();
-            expect(connection.execSql).toBeInstanceOf(Function);            
+            connection = await getconnection();
+            expect(connection).toBeInstanceOf(Connection);
+            expect(connection.execSql).toBeInstanceOf(Function);
         } finally {
             connection && connection.close();
         }
