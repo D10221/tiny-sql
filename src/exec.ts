@@ -1,4 +1,3 @@
-
 import { getParams, TediousParameter } from "./params";
 import {
   ColumnMetaData,
@@ -15,9 +14,7 @@ export type Result<T extends {} & { [key: string]: any }> = {
   status?: any;
   error?: Error;
 };
-
 // ...
-
 export type ExecParams = TediousParameter[] | ({}[]) | {};
 /**
  *
@@ -89,7 +86,7 @@ export default <T>(sqlTxt: string, args?: ExecParams) => (
           ...status,
           rowCount,
           more,
-          rows,          
+          rows,
         };
         debug("doneInProc: ", status);
       },

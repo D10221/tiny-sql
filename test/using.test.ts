@@ -1,10 +1,10 @@
 import execSql from "../src/exec-sql";
-import useConnection from "../src/use-connection";
+import using from "../src/using";
 import connect from "../src/connect-fty";
 process.env.DB="server=localhost;database=testdb;user=test;password=test;"
 describe("useConnection", () => {
   it("works", async () => {
-    const value = await useConnection(connect)(getValue(1))
+    const value = await using(connect)(getValue(1))
     expect(value)
       .toBe(1)
   });
