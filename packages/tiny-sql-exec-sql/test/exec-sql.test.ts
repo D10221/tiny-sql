@@ -1,6 +1,6 @@
 import ExecSql from "../src";
 import connect from "@d10221/tiny-sql-connect"
-import { Connection, ConnectionConfig } from "tedious";
+import { Connection } from "tedious";
 import { join } from "path";
 /** */
 const config = require(join(

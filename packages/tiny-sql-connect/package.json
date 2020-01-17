@@ -18,10 +18,8 @@
     "mapper"
   ],
   "author": "d10221@protonmail.com.com",
-  "license": "MIT",  
-  "dependencies": {
-    
-  },
+  "license": "MIT",
+  "dependencies": {},
   "peerDependencies": {
     "debug": "^3.1.0",
     "tedious": "^3.0.1"
@@ -30,8 +28,8 @@
     "@types/debug": "^0.0.30",
     "@types/jest": "23.1.5",
     "@types/tedious": "^2.6.1",
-    "jest": "22.4.3",
-    "ts-jest": "22.4.4",
+    "jest": "24.9.0",
+    "ts-jest": "24.3.0",
     "typescript": "3.1.6"
   }
 }
