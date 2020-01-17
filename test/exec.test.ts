@@ -1,7 +1,6 @@
-import { ExecSql } from "../src";
+import  ExecSql from "../src/exec-sql";
 import connect from "../src/connect";
 import { Connection } from "tedious";
-
 
 /** */
 it("execs with connection", async () => {
