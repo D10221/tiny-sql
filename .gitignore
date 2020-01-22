@@ -29,3 +29,5 @@
 *.tar.gz
 *.lock
 **/*_cache_*/*
+**/.temp/*
+**/.tmp/*
