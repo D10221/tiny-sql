@@ -1,7 +1,7 @@
 {
   "name": "@d10221/tiny-sql",
   "private": false,
-  "version": "1.0.0-beta.22",
+  "version": "1.0.0-beta.24",
   "description": "tiny sql mapper for tediousjs",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -10,7 +10,7 @@
   "scripts": {
     "test": "jest --ci --env=node",
     "build": "rimraf build &&  tsc -p . && rimraf dist && microbundle",
-    "publishit": "npm publish --access public"
+    "publishit": "yarn test && yarn build && npm pack && npm publish --access public && npx release-it --no-npm"
   },
   "keywords": [
     "typescript",
@@ -32,8 +32,8 @@
     "typescript": "3.7.5"
   },
   "files": [
-    "src/*",
-    "dist/*",
-    "build/*"
+    "dist/",
+    "src/",
+    "build/"
   ]
 }
