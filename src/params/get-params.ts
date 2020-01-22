@@ -20,7 +20,7 @@ export default function getParams(args: TediousParameter[] | {}): TediousParamet
     return [];
 }
 /** */
-export function getParam<T extends Indexer>(args: T) {
+function getParam<T extends Indexer>(args: T) {
     /** */
     return (key: string): TediousParameter => {
         const value = args[key];
@@ -34,7 +34,7 @@ export function getParam<T extends Indexer>(args: T) {
 /**
  * map plain object to TediousParameter[]
  */
-export function toParams<T extends {} & Indexer>(args: T): TediousParameter[] {
+function toParams<T extends {} & Indexer>(args: T): TediousParameter[] {
     const keys = Object.keys(args || {});   
     return keys.map(getParam(args));
 };

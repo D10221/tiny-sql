@@ -1,8 +1,5 @@
 import { TediousType, TYPES } from "tedious";
-
-function isNullOrUndefined(x: any) {
-    return x === null || typeof x === "undefined";
-}
+import isNullOrUndefined from "./is-null-or-undefined";
 
 export default function getType(value: any): TediousType {
     if (isNullOrUndefined(value)) return value;
