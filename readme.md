@@ -89,13 +89,11 @@ type: `connect (args: ConnectionConfig | Connection) -> Promise<Connection>`
 
 type: `connectFty: (envKey = "DB") -> Promise<Connection>`
 
-type: `Result<T extends {} & { [key: string]: any }> = { values?: T[];  status?: any;  error?: Error;};`
+type: `Result<T> = { values?: T[]; rowCount?: number, rows?: any[]     };`
 
-type: `ExecParams = TediousParameter[] | ({}[]) | {};`
+type: `ExecParams = TediousParameter[] | {}[] | {};`
 
 type: `Exec <T>(sqlTxt: string, args?: ExecParams) -> (connection: Connection) -> Result<T>`
-
-type: `ExecSql(connection: Connection) -> <T>(sqlTxt: string, args?-> ExecParams): Promise<Result<T>`
 
 type: `using(getConnection: () => Promise<Connection>) -> <T>(callback: (connection: Connection) => T)-> Promise<T>`
 
@@ -104,4 +102,26 @@ Notes:
 𐄂 It always returns a collection.  
 𐄂 There is no single exec or query  
 𐄂 ExecParams dot not map all possible types
+
+Query re-use:
+
+```typescript
+// mini middleware signature
+const exec = <ParameterType, ResultType>(query: string) => 
+        (p: ParameterType | undefined = undefined) => 
+            (connection: Connection) => 
+                ExecSql<ResultType>(query, p)(connection);
+// expected parameter type: (Typescript only)
+type ParameterType = { date: any };
+// expected return type
+type ResultType = { date: any };
+// Declare query
+const dateQuery = exec<ParameterType, >(`
+create table #temp (date DATE not null)
+insert into #temp (date) VALUES (@date);
+select * from #temp
+`);
+// Exec query 
+const result = await dateQuery({ date: "2020-01-01" })( await connect());
+```
 
