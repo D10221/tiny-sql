@@ -17,7 +17,7 @@
     "sql",
     "mapper"
   ],
-  "author": "d10221@protonmail.com.com",
+  "author": "d10221@protonmail.com",
   "license": "MIT",
   "dependencies": {
     "tedious": "8.0.1"
