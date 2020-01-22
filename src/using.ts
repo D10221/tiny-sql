@@ -5,7 +5,7 @@ const debug = Debug("@d10221/tiny-sql-use-connection");
 export default function using(getConnection: () => Promise<Connection>) {
   /** */
   return async <T>(callback: (connection: Connection) => T): Promise<T> => {
-    let connection: Connection;
+    let connection: Connection | undefined = undefined;
     try {
       connection = await getConnection();
       const r = await callback(connection);
@@ -14,7 +14,7 @@ export default function using(getConnection: () => Promise<Connection>) {
       debug(e);
       return Promise.reject(e);
     } finally {
-      connection && connection.close();
+      if (connection) connection!.close();
     }
-  }
+  };
 }

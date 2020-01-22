@@ -1,28 +1,17 @@
 {
     "compilerOptions": {
-        "module": "CommonJS",
+        "module": "ESNext",
         "target": "ESNext",
-        "noImplicitAny": true,
-        "noImplicitThis": true,
-        "noFallthroughCasesInSwitch": true,
-        "noUnusedLocals": true,
-        "noUnusedParameters": true,
+        "moduleResolution": "Node",
+        "strict": true,
         "sourceMap": true,
-        "outDir": "./dist",                
+        "outDir": "./build",                
         "declaration": true,
         "skipLibCheck": true,
         "esModuleInterop": true,
         "allowSyntheticDefaultImports": true
-    },
-    "exclude": [
-        "lib",
-        "node_modules",
-        "**/*.test.*",
-        "**/*-test.*",
-        "**/*_test.*",
-        "**/__test__/*"
-    ],
+    },    
     "include": [
-        "./src/**/*.ts"
+        "src"
     ]
 }

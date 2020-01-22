@@ -1,23 +1,18 @@
 import { getParams, TediousParameter } from "./params";
 import {
-  ColumnMetaData,
   ColumnValue,
   Connection,
   Request,
   TYPES,
 } from "tedious";
 import Debug from "debug";
-const debug = Debug("@d10221/tiny-sql-exec-sql/exec");
-/** */
-export type Result<T extends {} & { [key: string]: any }> = {
-  values?: T[];
-  status?: any;
-  error?: Error;
-};
+import { Result } from "./types";
+const debug = Debug("@d10221/tiny-sql-exec/exec");
+
 // ...
 export type ExecParams = TediousParameter[] | ({}[]) | {};
 /**
- *
+ * 
  */
 export default <T>(sqlTxt: string, args?: ExecParams) => (
   connection: Connection,
@@ -25,82 +20,39 @@ export default <T>(sqlTxt: string, args?: ExecParams) => (
   new Promise<Result<T>>(async (resolve, reject) => {
     debug("query: \n" + sqlTxt);
     const values: T[] = [];
-    let status: any = {};
+
+    let value: [any, string | undefined] = [undefined, undefined];
 
     const request = new Request(sqlTxt, (error, rowCount, rows) => {
       if (error) {
         return reject(error);
       }
-      const rowsLength = rows && rows.length;
-      debug(
-        "request:callback error, rowCount, rowsLength",
-        error,
-        rowCount,
-        rowsLength,
-      );
       request.removeAllListeners();
-      resolve({
+      return resolve(Object.assign({
         values,
-        status: {
-          ...status,
-          rowCount,
-          rowsLength,
-        },
-        error,
-      });
+        rowCount,
+        rows
+      }, {
+        [value[1] || "value"]: value[0]
+      }));
     });
 
     request.on("row", (columns: ColumnValue[]) => {
       const row: any = {};
-      columns.forEach(column => {
-        row[column.metadata.colName] = column.value;
+      columns.forEach((column, i) => {
+        row[column.metadata.colName || i] = column.value;
       });
       values.push(row);
     });
 
-    request.on("doneProc", (rowCount: number, more: boolean, returnStatus: any, rows: any[]) => {
-      status = {
-        ...status,
-        rowCount,
-        more,
-        rows,
-        returnStatus,
-      };
-      debug("doneProc: ", status);
-    });
-
-    request.on("done", (rowCount: number, more: boolean, rows: any[]) => {
-      status = {
-        ...status,
-        rowCount,
-        more,
-        rows,
-      };
-      debug("done: ", status);
-    });
-
-    request.on(
-      "doneInProc",
-      (rowCount: number, more: boolean, rows: any[]) => {
-        status = {
-          ...status,
-          rowCount,
-          more,
-          rows,
-        };
-        debug("doneInProc: ", status);
-      },
-    );
-
     request.on(
       "returnValue",
-      (parameterName: string, value: any, _metadata: ColumnMetaData) => {
-        const o: any = {};
-        o[parameterName] = value === TYPES.Null ? null : value;
-        values.push(o);
+      (parameterName, value, _metadata) => {
+        value = [value, parameterName]
       },
     );
-    const params = getParams(args);
+
+    const params = getParams(args as any);
     if (params && params.length > 0) {
       for (const p of params) {
         const { name, type, value, options } = p;

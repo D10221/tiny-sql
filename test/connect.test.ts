@@ -4,18 +4,18 @@ import { Connection } from "tedious";
 describe("connect", () => {
   it("works", async () => {
     const connection = await connect({
-      server: "localhost",
+      server: process.env.SQL_SERVER_DATA_SOURCE,
       options: {
-        database: "testdb",
-        encrypt: false
+        database: process.env.SQL_SERVER_DATABASE,
+        encrypt: false,
       },
       authentication: {
         type: "default",
         options: {
-          userName: "test",
-          password: "test"
-        }
-      }
+          userName: process.env.SQL_SERVER_USER,
+          password: process.env.SQL_SERVER_PASSWORD,
+        },
+      },
     });
     expect(connection).toBeInstanceOf(Connection);
     connection.close();
