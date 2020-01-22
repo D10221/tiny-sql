@@ -1,7 +1,7 @@
 {
   "name": "@d10221/tiny-sql",
   "private": false,
-  "version": "1.0.0-beta.21",
+  "version": "1.0.0-beta.22",
   "description": "tiny sql mapper for tediousjs",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
