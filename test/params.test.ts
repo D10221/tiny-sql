@@ -17,7 +17,7 @@ describe(require(join(__dirname, "../package.json")).name + "-get-params", () =>
   });
   /** */
   it("maps from TediousParameter[]", () => {
-    const buffer = new Buffer("hello");
+    const buffer = Buffer.from("hello");
     const expected: TediousParameter[] = [{
       name: "buffer",
       type: TYPES.VarBinary,
