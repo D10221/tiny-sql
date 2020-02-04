@@ -64,15 +64,19 @@ const shouldCommit = async (con: Connection) => {
 };
 /** */
 const shouldRollback = async (con: Connection) => {
-  const count = await removeAll(con);
-  if (count != toInsert.length) {
-    throw new Error("Remove All Failed");
+  try {
+    const count = await removeAll(con);
+    if (count != toInsert.length) {
+      throw new Error("Remove All Failed");
+    }
+    const values = await getValues(con);
+    if (values.length != 0) {
+      throw new Error("Remove All Failed");
+    }
+    throw new RollbackError(temptable);
+  } catch (error) {
+    return Promise.reject(error);
   }
-  const values = await getValues(con);
-  if (values.length != 0) {
-    throw new Error("Remove All Failed");
-  }
-  throw new RollbackError(temptable);
 };
 
 describe("transaction", () => {
@@ -88,8 +92,8 @@ describe("transaction", () => {
 
   afterAll(() =>
     getConnection()
-      .then(c => {
-        dropTable(c);
+      .then(async c => {
+        await dropTable(c);
         return c;
       })
       .then(c => c.close()),
