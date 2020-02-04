@@ -1,20 +1,23 @@
 import { Connection } from "tedious";
-import Debug from "debug";
-const debug = Debug("@d10221/tiny-sql-use-connection");
-/** */
+
+type Task<T = any> = (connection: Connection) => Promise<T>
+
 export default function using(getConnection: () => Promise<Connection>) {
   /** */
-  return async <T>(callback: (connection: Connection) => T): Promise<T> => {
-    let connection: Connection | undefined = undefined;
+  return async <T>(callback: Task): Promise<T> => {
     try {
-      connection = await getConnection();
-      const r = await callback(connection);
-      return Promise.resolve(r);
+      const connection = await getConnection();
+      try {
+        // throws here, wait for connection to close;
+        const ret = await callback(connection)
+        return ret;
+      } catch (error) {
+        throw error;
+      } finally {
+        if (connection) connection!.close();
+      }
     } catch (e) {
-      debug(e);
       return Promise.reject(e);
-    } finally {
-      if (connection) connection!.close();
     }
   };
 }
