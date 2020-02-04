@@ -1,7 +1,7 @@
 {
   "name": "@d10221/tiny-sql",
   "private": false,
-  "version": "1.0.0-beta.25",
+  "version": "1.0.0-beta.26",
   "description": "tiny sql mapper for tediousjs",
   "main": "dist/index.js",
   "src": "src/index.ts",
@@ -11,9 +11,9 @@
     "build:ts": "rimraf build &&  tsc -p . ",
     "bundle": "rimraf dist && node_modules/.bin/microbundle -f cjs --external tedious",
     "build": "yarn build:ts && yarn bundle",
-    "prepack": "yarn test && yarn build && yarn pretty",
-    "prepublishOnly": "yarn pack",
-    "postpublishOnly": "release-it --no-npm",
+    "prepack": "yarn build && yarn test && yarn pretty",
+    "publish:it": "yarn pack",
+    "release:it": "release-it --no-npm",
     "pretty": "prettier src**/*.*  test/**/* *.json *.js *.md --write"
   },
   "keywords": [
