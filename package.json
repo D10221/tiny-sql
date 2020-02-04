@@ -4,13 +4,17 @@
   "version": "1.0.0-beta.25",
   "description": "tiny sql mapper for tediousjs",
   "main": "dist/index.js",
-  "module": "dist/index.esm.js",
   "src": "src/index.ts",
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "jest --ci --env=node",
-    "build": "rimraf build &&  tsc -p . && rimraf dist && microbundle",
-    "publishit": "yarn test && yarn build && npm pack && npm publish --access public && npx release-it --no-npm"
+    "build:ts": "rimraf build &&  tsc -p . ",
+    "bundle": "rimraf dist && node_modules/.bin/microbundle -f cjs --external tedious",
+    "build": "yarn build:ts && yarn bundle",
+    "prepack": "yarn test && yarn build && yarn pretty",
+    "prepublishOnly": "yarn pack",
+    "postpublishOnly": "release-it --no-npm",
+    "pretty": "prettier src**/*.*  test/**/* *.json *.js *.md --write"
   },
   "keywords": [
     "typescript",
@@ -28,6 +32,9 @@
     "@types/tedious": "4.0.0",
     "debug": "3.1.0",
     "jest": "24.9.0",
+    "microbundle": "0.11.0",
+    "prettier": "1.19.1",
+    "release-it": "^12.4.3",
     "ts-jest": "24.3.0",
     "typescript": "3.7.5"
   },

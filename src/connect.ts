@@ -1,7 +1,7 @@
 import { Connection, ConnectionConfig } from "tedious";
 import { isConnection } from "./is-connection";
 /** */
-export default function connect (args: ConnectionConfig | Connection) {
+export default function connect(args: ConnectionConfig | Connection) {
   /** */
   const connection = isConnection(args) ? args : new Connection(args);
   /** */
@@ -19,4 +19,4 @@ export default function connect (args: ConnectionConfig | Connection) {
       reject(error);
     }
   });
-};
+}

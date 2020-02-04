@@ -9,8 +9,8 @@ const connect = () =>
       authentication: {
         type: "default",
         options: {
-            userName: process.env.SQL_SERVER_USER,
-            password: process.env.SQL_SERVER_PASSWORD,
+          userName: process.env.SQL_SERVER_USER,
+          password: process.env.SQL_SERVER_PASSWORD,
         },
       },
       options: {

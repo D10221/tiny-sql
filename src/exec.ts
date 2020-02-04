@@ -1,17 +1,13 @@
 import { getParams, TediousParameter } from "./params";
-import {
-  ColumnValue,
-  Connection,
-  Request,
-} from "tedious";
+import { ColumnValue, Connection, Request } from "tedious";
 import Debug from "debug";
 import { Result } from "./types";
 const debug = Debug("@d10221/tiny-sql-exec/exec");
 
 // ...
-export type ExecParams = TediousParameter[] | ({}[]) | {};
+export type ExecParams = TediousParameter[] | {}[] | {};
 /**
- * 
+ *
  */
 export default <T>(sqlTxt: string, args?: ExecParams) => (
   connection: Connection,
@@ -27,13 +23,18 @@ export default <T>(sqlTxt: string, args?: ExecParams) => (
         return reject(error);
       }
       request.removeAllListeners();
-      return resolve(Object.assign({
-        values,
-        rowCount,
-        rows
-      }, {
-        [value[1] || "value"]: value[0]
-      }));
+      return resolve(
+        Object.assign(
+          {
+            values,
+            rowCount,
+            rows,
+          },
+          {
+            [value[1] || "value"]: value[0],
+          },
+        ),
+      );
     });
 
     request.on("row", (columns: ColumnValue[]) => {
@@ -44,12 +45,9 @@ export default <T>(sqlTxt: string, args?: ExecParams) => (
       values.push(row);
     });
 
-    request.on(
-      "returnValue",
-      (parameterName, value, _metadata) => {
-        value = [value, parameterName]
-      },
-    );
+    request.on("returnValue", (parameterName, value, _metadata) => {
+      value = [value, parameterName];
+    });
 
     const params = getParams(args as any);
     if (params && params.length > 0) {
