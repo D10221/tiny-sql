@@ -1,9 +1,9 @@
 module.exports = {
   preset: "ts-jest",
   testEnvironment: "node",
-  global: {
+  globals: {
     "ts-jest": {
-      tsConfig: "tsconfig.json",
+      tsConfig: "tsconfig.test.json",
     },
   },
 };
