@@ -3,7 +3,6 @@ import {
   ColumnValue,
   Connection,
   Request,
-  TYPES,
 } from "tedious";
 import Debug from "debug";
 import { Result } from "./types";
@@ -19,8 +18,8 @@ export default <T>(sqlTxt: string, args?: ExecParams) => (
 ) =>
   new Promise<Result<T>>(async (resolve, reject) => {
     debug("query: \n" + sqlTxt);
-    const values: T[] = [];
 
+    const values: T[] = [];
     let value: [any, string | undefined] = [undefined, undefined];
 
     const request = new Request(sqlTxt, (error, rowCount, rows) => {
