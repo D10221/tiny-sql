@@ -63,7 +63,7 @@ const execSql: ExecSql = (sqlTxt, args) => connection =>
         /*value*/ value,
       ];
     });
-    const params = getParams(args as any);
+    const params = args && getParams(args);
     if (params && params.length > 0) {
       for (const p of params) {
         const { name, type, value, options } = p;
