@@ -8,7 +8,7 @@ process.env.DB =
   `encrypt=false;`;
 
 const getName = name => execSql("select @name as name", { name });
-const getConnection = () => connect(config("DB"));
+const getConnection = () => connect(config.from("DB", process.env));
 
 describe("js-package", () => {
   it("works", async () => {

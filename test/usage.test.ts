@@ -15,7 +15,7 @@ describe("usage", () => {
   it("works", async () => {
     let connection: Connection | undefined = undefined;
     try {
-      connection = await connect(config("DB"));
+      connection = await connect(config.from("DB"));
       const { values } = await getName("me")(connection);
       expect(values![0].name).toBe("me");
     } finally {

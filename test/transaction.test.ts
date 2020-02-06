@@ -8,7 +8,7 @@ import { randomString, range, isClosed, inTransaction } from "./utils";
 
 process.env.DB = `server=${process.env.SQL_SERVER_DATA_SOURCE};database=${process.env.SQL_SERVER_DATABASE};user=${process.env.SQL_SERVER_USER};password=${process.env.SQL_SERVER_PASSWORD};`;
 /** */
-const getConnection = () => connect(config("DB"));
+const getConnection = () => connect(config.from("DB"));
 /** */
 const temptable = "table_" + randomString();
 /** */

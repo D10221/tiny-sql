@@ -5,7 +5,7 @@ import config from "../src/config";
 process.env.DB = `server=${process.env.SQL_SERVER_DATA_SOURCE};database=${process.env.SQL_SERVER_DATABASE};user=${process.env.SQL_SERVER_USER};password=${process.env.SQL_SERVER_PASSWORD};`;
 describe("useConnection", () => {
   it("works", async () => {
-    const connection = await connect(config("DB"));
+    const connection = await connect(config.from("DB"));
     const value = await using(async () => connection)(getValue(1));
     expect((connection as any).closed).toBe(true);
     expect(value).toBe(1);

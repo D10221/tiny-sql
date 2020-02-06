@@ -1,5 +1,9 @@
 import { Connection, ConnectionConfig } from "tedious";
-import { isConnection } from "./is-connection";
+/** */
+export const isConnection = (x: any): x is Connection => {
+  return x instanceof Connection;
+};
+
 /** */
 export default function connect(args: ConnectionConfig | Connection) {
   /** */
