@@ -83,8 +83,7 @@ import {
   config,
   connect,
   connectFty,
-  Exec,
-  ExecSql,
+  execSql,
   useConnection,
 } from "d10221/tiny-sql";
 ```
@@ -99,7 +98,7 @@ type: `Result<T> = { values?: T[]; rowCount?: number, rows?: any[] };`
 
 type: `ExecParams = TediousParameter[] | {}[] | {};`
 
-type: `Exec <T>(sqlTxt: string, args?: ExecParams) -> (connection: Connection) -> Result<T>`
+type: `execSql <T>(sqlTxt: string, args?: ExecParams) -> (connection: Connection) -> Result<T>`
 
 type: `using(getConnection: () => Promise<Connection>) -> <T>(callback: (connection: Connection) => T)-> Promise<T>`
 

@@ -1,4 +1,4 @@
-import execSql from "../src/exec";
+import execSql from "../src/execSql";
 import using from "../src/using";
 import connect from "../src/connect";
 import config from "../src/config";

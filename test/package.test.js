@@ -1,4 +1,4 @@
-const { Exec, connect, config, using, withTransaction } = require("../");
+const { execSql, connect, config, using, withTransaction } = require("../");
 
 process.env.DB =
   `Data Source=${process.env.SQL_SERVER_DATA_SOURCE};` +
@@ -7,7 +7,7 @@ process.env.DB =
   `password=${process.env.SQL_SERVER_PASSWORD};` +
   `encrypt=false;`;
 
-const getName = name => Exec("select @name as name", { name });
+const getName = name => execSql("select @name as name", { name });
 const getConnection = () => connect(config("DB"));
 
 describe("js-package", () => {

@@ -1,4 +1,4 @@
-import ExecSql from "../src/exec";
+import execSql from "../src/execSql";
 import Connect from "../src/connect";
 import { Connection } from "tedious";
 
@@ -25,7 +25,7 @@ const exec = <ParameterType, ResultType>(
   p: {} | ParameterType | undefined = undefined, //
 ) => (
   connection: Connection, //
-) => ExecSql<ResultType>(query, p)(connection);
+) => execSql<ResultType>(query, p)(connection);
 
 const dateQuery = exec<{ date: any }, { date: any }>(`
 create table #temp (date DATE not null)

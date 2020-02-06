@@ -1,4 +1,4 @@
-import { Exec, connect, config } from "../src";
+import { execSql, connect, config } from "../src";
 import { Connection } from "tedious";
 
 process.env.DB =
@@ -9,7 +9,7 @@ process.env.DB =
   `encrypt=false;`;
 
 const getName = (name: string) =>
-  Exec<{ name: string }>("select @name as name", { name });
+  execSql<{ name: string }>("select @name as name", { name });
 
 describe("usage", () => {
   it("works", async () => {
