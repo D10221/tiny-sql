@@ -7,12 +7,11 @@ export default function connect(args: ConnectionConfig | Connection) {
   /** */
   return new Promise<Connection>((resolve, reject) => {
     try {
-      connection.on("connect", (err: Error | string) => {
-        if (err) return reject(err);
+      connection.on("connect", error => {
+        if (error) return reject(error);
         return resolve(connection);
       });
-      connection.on("error", (error: { code?: any } & Error) => {
-        // if (error.code === "ESOCKET") { throw error; }
+      connection.on("error", error => {
         return reject(error);
       });
     } catch (error) {
