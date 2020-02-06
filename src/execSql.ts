@@ -9,7 +9,7 @@ export type Result<T extends { [key in keyof T]: T[key] } = {}> = {
   rows: any[];
 };
 /** */
-export type ExecParams = TediousParameter[] | {}[] | {};
+export type ExecParams = TediousParameter[] | {};
 /** */
 export type ExecSql = <T>(
   sqlTxt: string,
@@ -73,3 +73,11 @@ const execSql: ExecSql = (sqlTxt, args) => connection =>
     connection.execSql(request);
   });
 export default execSql;
+/**
+ * dapper Like
+ */
+export const query = <T = any>(
+  con: Connection,
+  sql: string,
+  params?: ExecParams,
+) => execSql<T>(sql, params)(con);
