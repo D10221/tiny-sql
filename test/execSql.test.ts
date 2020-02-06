@@ -1,6 +1,6 @@
 import execSql, { query } from "../src/execSql";
 import Connect from "../src/connect";
-import { Connection } from "tedious";
+import { Connection, TYPES } from "tedious";
 
 const connect = () =>
   Connect(
@@ -54,7 +54,15 @@ describe("execSql", () => {
     expect(await query(connection, "select 0")).toMatchObject(x);
   });
   // it("Query value", async () => {
-  //   const x: any = { rowCount: 1, rows: [], values: [{ 0: 0 }] };    
-  //   expect(await query(connection, "return 0")).toMatchObject(x);
+  //   const x: any = { rowCount: 1, rows: [], values: [{ 0: 0 }] };
+  //   expect(
+  //     await query(connection, "return 0", [
+  //       {
+  //         name: "out",
+  //         type: TYPES.Int,
+  //         out: true,
+  //       },
+  //     ]),
+  //   ).toMatchObject(x);
   // });
 });

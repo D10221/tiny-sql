@@ -11,11 +11,9 @@ export default function getType(value: any): TediousType {
     case "boolean":
       return TYPES.Bit;
     default: {
-      if (value instanceof Buffer) {
-        return TYPES.Binary;
-      }
+      if (value instanceof Buffer) return TYPES.Binary;
+      if (value instanceof Date) return TYPES.DateTime;
+      throw new Error(`${value}:${typeof value} Not Implemented`);
     }
   }
-  if (value instanceof Date) return TYPES.DateTime;
-  throw new Error(`${typeof value} map Not Implemented`);
 }

@@ -5,4 +5,5 @@ export type TediousParameter = {
     type: TediousType;
     value: any;
     options?: ParameterOptions;
+    out?: boolean
 };
