@@ -38,16 +38,18 @@ describe("connection-config", () => {
         options: {
           userName: undefined,
           password: undefined,
-        }
+        },
       },
       options: {
         database: undefined,
         encrypt: false,
-        port: 1433
-      }
-    })
-  })
+        port: 1433,
+      },
+    });
+  });
   it("configs from json", () => {
-    expect(config.from(`{ "hello": "world" }`)).toMatchObject({ hello: "world" })
-  })
+    expect(config.from(`{ "hello": "world" }`)).toMatchObject({
+      hello: "world",
+    });
+  });
 });
