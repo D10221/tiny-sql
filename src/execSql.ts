@@ -1,9 +1,14 @@
 import { getParams, TediousParameter } from "./params";
 import { ColumnValue, Connection, Request } from "tedious";
 import Debug from "debug";
-import { Result } from "./types";
 const debug = Debug("@d10221/tiny-sql/execSql");
-
+/** */
+export type Result<T extends { [key in keyof T]: T[key] } = {}> = {
+  values: T[];
+  rowCount: number;
+  rows: any[];
+};
+/** */
 export type ExecParams = TediousParameter[] | {}[] | {};
 
 type ExecSql = <T>(
