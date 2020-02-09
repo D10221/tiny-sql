@@ -27,10 +27,8 @@
     "tedious": "8.0.1"
   },
   "devDependencies": {
-    "@types/debug": "0.0.30",
     "@types/jest": "23.1.5",
     "@types/tedious": "4.0.0",
-    "debug": "3.1.0",
     "jest": "24.9.0",
     "microbundle": "0.11.0",
     "prettier": "1.19.1",

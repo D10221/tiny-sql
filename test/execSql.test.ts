@@ -1,4 +1,4 @@
-import execSql, { query } from "../src/execSql";
+import execSql, { query, Result } from "../src/execSql";
 import Connect from "../src/connect";
 import { Connection, TYPES } from "tedious";
 
@@ -18,7 +18,7 @@ const connect = () =>
       },
     }),
   );
-describe("execSql", () => {
+describe("exec-sql", () => {
   let connection: Connection;
   beforeAll(async () => {
     connection = await connect();
@@ -53,16 +53,34 @@ describe("execSql", () => {
     const x: any = { rowCount: 1, rows: [], values: [{ 0: 0 }] };
     expect(await query(connection, "select 0")).toMatchObject(x);
   });
-  // it("Query value", async () => {
-  //   const x: any = { rowCount: 1, rows: [], values: [{ 0: 0 }] };
-  //   expect(
-  //     await query(connection, "return 0", [
-  //       {
-  //         name: "out",
-  //         type: TYPES.Int,
-  //         out: true,
-  //       },
-  //     ]),
-  //   ).toMatchObject(x);
-  // });
+  it("value as query", async () => {
+    const result = await query(
+      connection,
+      `
+      create table #temp(id INT not null);
+      insert into #temp (id) VALUES (1);
+      insert into #temp (id) VALUES (2);
+      insert into #temp (id) VALUES (3);
+      SELECT count(id) FROM #temp;
+      `,
+    );
+    const expected: Result<any> = {
+      values: [{ 0: 3 }],
+      rowCount: 4,
+      rows: [],
+    };
+    expect(result).toMatchObject(expected);
+  });
+  it("out param (wip)", async () => {
+    const x: any = { rowCount: 1, rows: [], values: [] };
+    expect(
+      await query(connection, "SET @out = 999;", [
+        {
+          name: "out",
+          type: TYPES.Int,
+          out: true,
+        },
+      ]),
+    ).toMatchObject(x);
+  });
 });

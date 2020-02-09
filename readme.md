@@ -10,13 +10,6 @@ Depends on:
 ```json
 "tedious": "8.0.1"
 ```
-
-Debug:
-
-```bash
-$ export DEBUG='d10221/tiny-sql:*'
-```
-
 Build:
 
 ```bash

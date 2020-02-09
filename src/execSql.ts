@@ -1,7 +1,5 @@
 import { getParams, TediousParameter } from "./params";
 import { ColumnValue, Connection, Request } from "tedious";
-import Debug from "debug";
-const debug = Debug("@d10221/tiny-sql/execSql");
 /** */
 export type Result<T extends { [key in keyof T]: T[key] } = {}> = {
   values: T[];
@@ -20,33 +18,23 @@ export type ExecSql = <T>(
  */
 const execSql: ExecSql = (sqlTxt, args) => connection =>
   new Promise<Result<any>>(async (resolve, reject) => {
-    debug("query: \n" + sqlTxt);
-
     const values: any[] = [];
     /**
      * [key, value]
      */
-    let value: [string | number, any];
+    let value: [string | number, any] =["", undefined];
 
     const request = new Request(sqlTxt, (error, rowCount, rows) => {
       if (error) {
         reject(error);
       } else {
         request.removeAllListeners();
-        if (value) {
-          return resolve({
-            // if value return value as T as values[0]
-            values: value ? [{ [value[0]]: value[1] }, ...values] : values,
-            rowCount,
-            rows,
-          });
-        } else {
-          return resolve({
-            values,
-            rowCount,
-            rows,
-          });
-        }
+        return resolve({
+          values,
+          rowCount,
+          rows,
+          ...{ [value[0]]: value[1] },
+        });
       }
     });
     request.on("row", (columns: ColumnValue[]) => {
