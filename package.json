@@ -39,6 +39,9 @@
   "files": [
     "dist/",
     "src/",
-    "build/"
+    "build/",
+    "index.js",
+    "index.esnext.js",
+    "index.d.ts"
   ]
 }
