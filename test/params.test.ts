@@ -1,5 +1,6 @@
-import { getParams, TediousParameter } from "../src/params";
-import { TYPES } from "tedious";
+import { getParams, TediousParameter, addParams } from "../src/params";
+import { TYPES, Request } from "tedious";
+import getType from "../src/params/get-type";
 /** */
 describe("getParams", () => {
   /** */
@@ -59,4 +60,28 @@ describe("getParams", () => {
       nullValue
     ]);
   });
+  it("maps Null", ()=>{
+    const Null = TYPES.Null;
+    expect(getType(null)).toMatchObject(Null)
+  })
+  function all<T>(xxx: T[], test: (x: T) => boolean) {
+    return xxx.reduce((prev, next) => prev && test(next), true);
+  }
+  it("handles null", () => {
+    const req = new Request("select @x", err => { });
+    addParams(req, {
+      value: null
+    });
+    const params = (req as any).parameters;
+    expect(
+      // all params
+      all(params, Boolean)
+    ).toBe(true);
+    expect(
+      // all params have type    
+      all(params, (x: any) => Boolean(x.type))
+    ).toBe(true);
+    const fst = params[0];
+    expect(fst.value ).toBeNull();
+  })
 });

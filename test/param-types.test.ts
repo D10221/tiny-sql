@@ -41,7 +41,7 @@ afterAll(() => {
   connection && connection.close();
 });
 
-describe("Parmeter types", () => {
+describe("Parmeters", () => {
   it("Implicit Date Conversion", async () => {
     const result = await dateQuery({ date: "2020-01-01" })(connection);
     const { date } = result.values![0];

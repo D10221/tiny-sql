@@ -1,4 +1,4 @@
-import { getParams, TediousParameter } from "./params";
+import { addParams, TediousParameter } from "./params";
 import { ColumnValue, Connection, Request } from "tedious";
 /** */
 export type Result<T extends { [key in keyof T]: T[key] } = {}> = {
@@ -51,16 +51,8 @@ const execSql: ExecSql = (sqlTxt, args) => connection =>
         /*value*/ value,
       ];
     });
-    const params = args && (Array.isArray(args) ? args : getParams(args));
-    if (params && params.length > 0) {
-      for (const p of params) {
-        const { name, type, value, options, out } = p;
-        if (out) {
-          request.addOutputParameter(name, type, value, options);
-        } else {
-          request.addParameter(name, type, value, options);
-        }
-      }
+    if (args) {
+      addParams(request, args);
     }
     connection.execSql(request);
   });
