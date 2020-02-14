@@ -22,7 +22,7 @@ const execSql: ExecSql = (sqlTxt, args) => connection =>
     /**
      * [key, value]
      */
-    let value: [string | number, any] =["", undefined];
+    let value: [string | number, any] = ["", undefined];
 
     const request = new Request(sqlTxt, (error, rowCount, rows) => {
       if (error) {
