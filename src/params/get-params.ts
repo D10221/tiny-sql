@@ -24,5 +24,6 @@ function getParam<T>(args: T) {
  * map plain object to TediousParameter[]
  */
 function toParams<T extends {}>(args: T): TediousParameter[] {
-  return (Object.keys(args || {}) as (keyof T)[]).map(getParam(args));
+  const keys = (Object.keys(args || {}) as (keyof T)[]);
+  return keys.map(getParam(args));
 }

@@ -1,8 +1,6 @@
 import { TediousType, TYPES } from "tedious";
-import { isNullOrUndefined } from "./internal";
 
-export default function getType(value: any): TediousType {
-  if (isNullOrUndefined(value)) return value;
+export default function getType(value: any): TediousType {  
   switch (typeof value) {
     case "string":
       return TYPES.VarChar;

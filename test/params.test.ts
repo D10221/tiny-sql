@@ -35,6 +35,11 @@ describe("getParams", () => {
       value: now,
       name: "date",
     };
+    const nullValue: TediousParameter = {
+      type: TYPES.Null,
+      value: null,
+      name: "nullValue"
+    };
     const params = {
       x: "x",
       int: 0,
@@ -42,6 +47,7 @@ describe("getParams", () => {
       bit: false,
       date: now,
       binary: Buffer.from(""),
+      nullValue: null as any
     };
     expect(getParams(params)).toMatchObject([
       varchar,
@@ -50,6 +56,7 @@ describe("getParams", () => {
       bit,
       date,
       binary,
+      nullValue
     ]);
   });
 });
