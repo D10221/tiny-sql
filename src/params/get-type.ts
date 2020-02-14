@@ -13,6 +13,7 @@ export default function getType(value: any): TediousType {
     default: {
       if (value instanceof Buffer) return TYPES.Binary;
       if (value instanceof Date) return TYPES.DateTime;
+      if (value === null) return TYPES.Null;
       throw new Error(`${value}:${typeof value} Not Implemented`);
     }
   }
